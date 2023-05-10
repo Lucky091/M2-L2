@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import random
 import os
+
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -70,6 +71,7 @@ async def rps(ctx):
             await ctx.send(f'Bruh. >: |\nYour choice: {user_choice}\nMy choice: {comp_choice}')
         elif comp_choice == 'scissors':
             await ctx.send(f"Oh well, we tied.\nYour choice: {user_choice}\nMy choice: {comp_choice}")
+            
 @bot.command()
 async def mem(ctx):
     images = os.listdir('images')
@@ -101,6 +103,19 @@ async def ecology(ctx):
     with open(f'ecology/{img_name}', 'rb') as f:
             picture = discord.File(f)
     await ctx.send(file=picture)
+
+@bot.command()
+async def procent(ctx):
+    await ctx.send('Примерно процент рагрязнения окружающей среды 90%')
+
+@bot.command()
+async def procentair(ctx):
+    await ctx.send('На сегодняшний день более 90 процентов людей во всем мире дышат воздухом, уровень загрязнения которого превышает допустимые нормы.')
+
+@bot.command()
+async def amountpeople(ctx):
+    await ctx.send('Шесть миллиардов жителей планеты, треть которых – дети, дышат загрязненным воздухом, что создает угрозу их здоровью и даже жизни.')
+
 
 
 bot.run("token")
